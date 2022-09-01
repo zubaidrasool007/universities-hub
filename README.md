@@ -1,6 +1,18 @@
-# MyFep
+# Universities Hub
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+
+Its Universities Hub generate the universities list with respect to country selected by the user
+In this REPO two public APIs are used to fetch the countries and universities
+- countries: https://restcountries.com/v3.1/all
+- universities: http://universities.hipolabs.com
+We have listed universities across the country with its official websites and states.
+
+# The tools used mainly to design and Develop
+- HttpModule
+- Stand Alone Components
+- Angular Material
+
 
 ## Development server
 
