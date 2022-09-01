@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { UniversitiesListComponent } from './universities-list/universities-list.component';
 import { DataService } from './universities.service';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DataService,
