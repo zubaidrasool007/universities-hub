@@ -8,7 +8,7 @@ In this REPO two public APIs are used to fetch the countries and universities
 - universities: http://universities.hipolabs.com
 We have listed universities across the country with its official websites and states.
 
-# The tools used mainly to design and Develop
+# The tools used mainly to design and develop
 - HttpModule
 - Stand Alone Components
 - Angular Material
