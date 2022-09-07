@@ -9,6 +9,11 @@ export class DataService {
   constructor(private httpClient: HttpClient) {
   }
 
+  getCountries(): Observable<any> {
+    const countriesUrl = `${environment.countriesDomain}`;
+    return this.httpClient.get(countriesUrl);
+  }
+
   getUniversities(country: string): Observable<any> {
     const universitiesUrl = `${environment.universitesDomain}/search?country=${country}`;
     return this.httpClient.get(universitiesUrl);
