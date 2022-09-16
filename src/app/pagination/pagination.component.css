@@ -1,0 +1,36 @@
+.page-nav {
+    padding-top: 5px;
+    padding-bottom: 20px;
+    display: flex;
+    width: 100%;
+}
+
+.page-nav .pagination {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.page-nav .pagination .page-item .page-link:hover {
+    cursor: pointer;
+    background: gray;
+    color: white;
+}
+
+.page-nav .pagination .page-item .page-link.active {
+    background: gray;
+    color: white;
+}
+
+.page-nav .pagination .page-item .page-link {
+    font-size: 13px;
+    line-height: 17px;
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 2px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}

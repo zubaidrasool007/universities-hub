@@ -1,1 +1,36 @@
-<p>pagination works!</p>
+<div class="page-nav" *ngIf="pageCount > 1">
+    <ul class="pagination">
+        <li class="page-item" [ngClass]="{'disabled': currentPage === 1}" (click)="currentPage > 1 && changePage(1)">
+            <a class="page-link" [ngClass]="{'disabled': currentPage === 1}" tabindex="-1">«</a>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': currentPage === 1}"
+            (click)="currentPage > 1 && changePage(currentPage-1)">
+            <a class="page-link" [ngClass]="{'disabled': currentPage === 1}" tabindex="-1">‹</a>
+        </li>
+        <ng-container *ngFor="let page of calculateTotalPages().reverse().slice(-5)">
+            <li class="page-item" *ngIf="currentPage > page">
+                <a (click)="changePage(currentPage - page)" class="page-link">
+                    {{currentPage - page}}
+                </a>
+            </li>
+        </ng-container>
+        <li class="page-item">
+            <a class="page-link active">{{currentPage}}</a>
+        </li>
+        <ng-container *ngFor="let page of calculateTotalPages(); let i=index">
+            <li class="page-item" *ngIf="currentPage !== pageCount && (page + currentPage) <= pageCount && i < 5">
+                <a (click)="changePage(currentPage + page)" class="page-link">
+                    {{page+currentPage}}
+                </a>
+            </li>
+        </ng-container>
+        <li class="page-item" [ngClass]="{'disabled': currentPage === pageCount}"
+            (click)="currentPage < pageCount && changePage(pageCount+1)">
+            <a class="page-link" [ngClass]="{'disabled': currentPage === pageCount}">›</a>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': currentPage === pageCount}"
+            (click)="currentPage < pageCount && changePage(pageCount)">
+            <a class="page-link" [ngClass]="{'disabled': currentPage === pageCount}">»</a>
+        </li>
+    </ul>
+</div>
