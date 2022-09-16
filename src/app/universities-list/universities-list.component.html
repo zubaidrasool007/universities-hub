@@ -12,38 +12,40 @@
     <div *ngIf="isLoading" class="search-btn">
         <mat-spinner color="info" diameter="30"></mat-spinner>
     </div>
-    <div *ngIf="!isLoading"  class="search-btn" (click)="getUniversitiesList()">
+    <div *ngIf="!isLoading" class="search-btn" (click)="getUniversitiesList()">
         <mat-icon class="mat-icon-rtl-mirror" fontIcon="search"></mat-icon>
     </div>
 </form>
 
+<div *ngIf="universtiesList.length">
+    <table mat-table [dataSource]="universtiesDisplayList" class="mat-elevation-z8">
 
-<table mat-table [dataSource]="universtiesList" class="mat-elevation-z8">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
+        <!-- Domains Column -->
+        <ng-container matColumnDef="domains">
+            <th mat-header-cell *matHeaderCellDef> Domain </th>
+            <td mat-cell *matCellDef="let element"> {{element.domains[0] ?? '--'}} </td>
+        </ng-container>
 
-    <!-- Domains Column -->
-    <ng-container matColumnDef="domains">
-        <th mat-header-cell *matHeaderCellDef> Domain </th>
-        <td mat-cell *matCellDef="let element"> {{element.domains[0] ?? '--'}} </td>
-    </ng-container>
+        <!-- State/Province Column -->
+        <ng-container matColumnDef="state-province">
+            <th mat-header-cell *matHeaderCellDef> State/Province </th>
+            <td mat-cell *matCellDef="let element"> {{element['state-province'] ?? '--'}} </td>
+        </ng-container>
 
-    <!-- State/Province Column -->
-    <ng-container matColumnDef="state-province">
-        <th mat-header-cell *matHeaderCellDef> State/Province </th>
-        <td mat-cell *matCellDef="let element"> {{element['state-province'] ?? '--'}} </td>
-    </ng-container>
-    
-    <!-- Web Page Column -->
-    <ng-container matColumnDef="web_pages">
-        <th mat-header-cell *matHeaderCellDef> Web Page </th>
-        <td mat-cell *matCellDef="let element"> {{element.web_pages[0] ?? '--'}} </td>
-    </ng-container>
+        <!-- Web Page Column -->
+        <ng-container matColumnDef="web_pages">
+            <th mat-header-cell *matHeaderCellDef> Web Page </th>
+            <td mat-cell *matCellDef="let element"> {{element.web_pages[0] ?? '--'}} </td>
+        </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <app-pagination [totalRecords]="universtiesList.length" [recordsPerPage]="20" (pageChanged)="currentPageChanged($event)"></app-pagination>
+</div>

@@ -16,6 +16,8 @@ export class UniversitiesListComponent implements OnInit {
   public universtiesList: Array<any> = [];
   public universtiesDisplayList: Array<any> = [];
   public filteredOptions: Observable<any> | undefined;
+  public recordsPerPage: number = 20;
+  private currentPage: number = 1;
   displayedColumns: string[] = ['name', 'domains', 'state-province', 'web_pages'];
 
   constructor(
@@ -50,9 +52,20 @@ export class UniversitiesListComponent implements OnInit {
       .subscribe(res => {
         this.universtiesList = res;
         this.isLoading = false;
+        this.setUniversitiesToDisplay();
       }, error => {
         this.isLoading = false;
       });
+  }
+
+  currentPageChanged(page: number) {
+    this.currentPage = page;
+    this.setUniversitiesToDisplay();
+  }
+
+  setUniversitiesToDisplay() {
+    const lastVisitedPage = this.recordsPerPage * (this.currentPage - 1);
+    this.universtiesDisplayList = this.universtiesList.slice(lastVisitedPage, this.recordsPerPage * this.currentPage);
   }
 
 }

@@ -19,6 +19,7 @@ import { DataService } from './universities.service';
 
 // Pipes
 import { SortPipe } from './sort.pipe';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SortPipe } from './sort.pipe';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    PaginationComponent,
     MaterialModule,
   ],
   providers: [
