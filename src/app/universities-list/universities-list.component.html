@@ -17,7 +17,7 @@
     </div>
 </form>
 
-<div *ngIf="universtiesList.length; else NoRecordFound">
+<div class="main-content" *ngIf="universtiesList.length; else NoRecordFound">
     <table mat-table [dataSource]="universtiesDisplayList" class="mat-elevation-z8">
 
         <!-- Name Column -->

@@ -48,6 +48,7 @@ export class UniversitiesListComponent implements OnInit {
 
   getUniversitiesList() {
     this.isLoading = true;
+    this.universtiesList = this.universtiesDisplayList = [];
     this.dataService.getUniversities(this.selectedCountry.value as string)
       .subscribe(res => {
         this.universtiesList = res;

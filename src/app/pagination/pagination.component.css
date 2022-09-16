@@ -8,8 +8,7 @@
 .page-nav .pagination {
     display: flex;
     list-style: none;
-    align-items: center;
-    align-content: center;
+    padding-inline-start: 0;
     width: 100%;
 }
 
