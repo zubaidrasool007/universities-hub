@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
 })
 export class UniversitiesListComponent implements OnInit {
 
-  public selectedCountry = new FormControl('Pakistan');
+  public selectedCountry = new FormControl('United States');
   public isLoading: boolean = false;
   public countries: Array<any> = [];
   public universtiesList: Array<any> = [];

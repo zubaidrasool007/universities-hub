@@ -17,7 +17,7 @@
     </div>
 </form>
 
-<div *ngIf="universtiesList.length">
+<div *ngIf="universtiesList.length; else NoRecordFound">
     <table mat-table [dataSource]="universtiesDisplayList" class="mat-elevation-z8">
 
         <!-- Name Column -->
@@ -47,5 +47,12 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <app-pagination [totalRecords]="universtiesList.length" [recordsPerPage]="20" (pageChanged)="currentPageChanged($event)"></app-pagination>
+    <app-pagination [totalRecords]="universtiesList.length" [recordsPerPage]="20"
+        (pageChanged)="currentPageChanged($event)"></app-pagination>
 </div>
+<ng-template #NoRecordFound>
+    <h1 *ngIf="!isLoading">No Record Found</h1>
+    <div *ngIf="isLoading" class="main-loader">
+        <img src="assets/loading.gif" />
+    </div>
+</ng-template>

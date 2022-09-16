@@ -25,7 +25,7 @@
             </li>
         </ng-container>
         <li class="page-item" [ngClass]="{'disabled': currentPage === pageCount}"
-            (click)="currentPage < pageCount && changePage(pageCount+1)">
+            (click)="currentPage < pageCount && changePage(currentPage+1)">
             <a class="page-link" [ngClass]="{'disabled': currentPage === pageCount}">›</a>
         </li>
         <li class="page-item" [ngClass]="{'disabled': currentPage === pageCount}"

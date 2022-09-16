@@ -2,18 +2,29 @@
     min-width: 150px;
     width: 50%;
     display: flex;
-    background: lightgray;
+    background: gray;
 }
 
 .mat-form-field {
     width: 80%;
+    color: white;
+}
+
+.main-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
 }
 
 .search-btn {
     width: 20%;
     display: grid;
     place-items: center;
-    background: lightgray;
+    background: gray;
+}
+.search-btn mat-icon {
+    color: white;
 }
 
 .search-btn:hover {
@@ -23,4 +34,5 @@
 table {
     position: inherit;
     width: 100%;
+    background: gray;
 }
