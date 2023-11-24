@@ -15,10 +15,12 @@ import { AppComponent } from './app.component';
 import { UniversitiesListComponent } from './universities-list/universities-list.component';
 
 // Services
-import { DataService } from './universities.service';
+import { DataService } from './services/universities.service';
 
 // Pipes
-import { SortPipe } from './sort.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+
+// Stand Alone Component
 import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
